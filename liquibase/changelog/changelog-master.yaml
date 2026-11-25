@@ -1,0 +1,8 @@
+# Archivo maestro: lista, en orden, los changelogs que Liquibase debe aplicar
+databaseChangeLog:
+  - include:
+      file: 001-esquema-y-dimensiones.sql
+      relativeToChangelogFile: true
+  - include:
+      file: 002-hechos.sql
+      relativeToChangelogFile: true
