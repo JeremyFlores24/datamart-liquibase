@@ -32,3 +32,11 @@ jobs:
             -Dliquibase.url="${DATABRICKS_JDBC_URL};UserAgentEntry=Liquibase;EnableArrow=0;" \
             -Dliquibase.username=token \
             -Dliquibase.password="${DATABRICKS_TOKEN}"
+
+      - name: Verificar secretos
+        env:
+          URL: ${{ secrets.DATABRICKS_JDBC_URL }}
+          TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          [ -n "$URL" ] && echo "URL: OK" || echo "URL: VACIA"
+          [ -n "$TOKEN" ] && echo "TOKEN: OK" || echo "TOKEN: VACIO"
